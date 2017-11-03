@@ -45,7 +45,7 @@ echo "b0 brainmask creation complete"
 if [ -f "dwi.nii.gz" ]; then
 	echo "File exists. Skipping registration."
 else
-	echo "Register dwi to T1 ACPC space"
+	echo "Register dwi to T1 space"
 	## Align dwi to ACPC space
 	matlab -nodisplay -nosplash -r "dwiAlign2T1()";
 	
