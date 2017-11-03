@@ -47,7 +47,7 @@ if [ -f "dwi.nii.gz" ]; then
 else
 	echo "Register dwi to T1 ACPC space"
 	## Align dwi to ACPC space
-	matlab -nodisplay -nosplash -r "dwiAlignT1NODDI()";
+	matlab -nodisplay -nosplash -r "dwiAlign2T1()";
 	
 	ret=$?
 	if [ ! $ret -eq 0 ]; then
