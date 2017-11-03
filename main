@@ -42,7 +42,7 @@ fi
 echo "b0 brainmask creation complete"
 
 
-if [ -f "data_acpc.nii.gz" ]; then
+if [ -f "dwi.nii.gz" ]; then
 	echo "File exists. Skipping registration."
 else
 	echo "Register dwi to T1 ACPC space"
