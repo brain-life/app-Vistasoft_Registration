@@ -1,66 +1,16 @@
 #!/bin/bash
 
-## modules
-module load fsl/5.0.9
-module load java
-module load camino
-module load matlab/2017a
-module load spm/8
+module load singularity 2> /dev/null
 
-echo "Setting file paths"
-# Grab the config.json inputs
-dwi=`./jq -r '.dwi' config.json`;
-bvals=`./jq -r '.bvals' config.json`;
-bvecs=`./jq -r '.bvecs' config.json`;
-t1=`./jq -r '.t1' config.json`;
-echo "Files loaded"
+# create brainmask
+singularity exec -e docker://brainlife/vistasoftregistration /app/brainmask.sh
 
-if [ -f "nodif_brain.nii.gz" ]; then
-	echo "File exists. Skipping b0 brainmask creation."
-else	
-	echo "Creating b0 brainmask for alignment"
-	# Create b0 image
-	select_dwi_vols \
-		${dwi} \
-		${bvals} \
-		nodif.nii.gz \
-		0;
+# registration
+singularity exec -e docker://brainlife/mcr:neurodebian1604-r2017a ./compiled/main
 
-	# Brain extraction before alignment
-	bet nodif.nii.gz \
-		nodif_brain \
-		-f 0.4 \
-		-g 0 \
-		-m;
-	ret=$?
-	if [ ! $ret -eq 0 ]; then
-		echo "b0 brainmask creation failed"
-		echo $ret > finished
-		exit $ret
-	fi
+
+if [ ! -s output.mat ];
+then
+	echo "output missing"
+	exit 1
 fi
-echo "b0 brainmask creation complete"
-
-
-if [ -f "dwi.nii.gz" ]; then
-	echo "File exists. Skipping registration."
-else
-	echo "Register dwi to T1 space"
-	## Align dwi to ACPC space
-	matlab -nodisplay -nosplash -r "dwiAlign2T1()";
-	
-	ret=$?
-	if [ ! $ret -eq 0 ]; then
-		echo "Registration failed"
-		echo $ret > finished
-		exit $ret
-	fi
-fi
-echo "Registration complete."
-
-mv data_acpc.nii.gz dwi.nii.gz;
-mv bvecs_rot dwi.bvecs;
-mv ${bvals} dwi.bvals;
-rm -rf *nodif*;
-
-echo "DWI Registration Pipeline Complete"

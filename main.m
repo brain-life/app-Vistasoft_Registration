@@ -1,4 +1,4 @@
-function out = dwiAlign2T1()
+function out = main()
 
 %%  Will align multi-shell dwi to ACPC aligned T1 and rotate the bvecs.  Needs vistasoft ((C) Vista lab, Stanford University)
 
@@ -53,3 +53,4 @@ dtiRawResample(dwiRaw,[],outAcpcTransform,outDwi,interpolation,outresolution);
 bvecs = dtiRawReorientBvecs(bvecs_pre,[],outAcpcTransform,outBvecs);
 exit;
 end
+
