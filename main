@@ -8,6 +8,9 @@ singularity exec -e docker://brainlife/vistasoftregistration /app/brainmask.sh
 # registration
 singularity exec -e docker://brainlife/mcr:neurodebian1604-r2017a ./compiled/main
 
+# clean up
+singularity exec -e docker://brainlife/vistasoftregistration /app/clean.sh
+
 
 if [ ! -s output.mat ];
 then
