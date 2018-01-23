@@ -1,9 +1,9 @@
 echo "Setting file paths"
 # Grab the config.json inputs
-dwi=`./jq -r '.dwi' config.json`;
-bvals=`./jq -r '.bvals' config.json`;
-bvecs=`./jq -r '.bvecs' config.json`;
-t1=`./jq -r '.t1' config.json`;
+dwi=`jq -r '.dwi' config.json`;
+bvals=`jq -r '.bvals' config.json`;
+#bvecs=`./jq -r '.bvecs' config.json`;
+#t1=`./jq -r '.t1' config.json`;
 echo "Files loaded"
 
 # Create b0 image
