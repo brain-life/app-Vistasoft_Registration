@@ -1,6 +1,0 @@
-{
-	"dwi": "/media/brad/APPS/work_for_tomorrow/dtiinit/1_001/dwi_aligned_trilin_noMEC.nii.gz",
-	"bvals": "/media/brad/APPS/work_for_tomorrow/dtiinit/1_001/dwi_aligned_trilin_noMEC.bvals",
-	"bvecs": "/media/brad/APPS/work_for_tomorrow/dtiinit/1_001/dwi_aligned_trilin_noMEC.bvecs",
-	"t1": "/media/brad/APPS/work_for_tomorrow/t1_acpc/1_001_t1.nii.gz"
-}
