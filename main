@@ -4,7 +4,7 @@ module load singularity 2> /dev/null
 
 # create brainmask
 #singularity exec -e docker://brainlife/vistasoftregistration ./brainmask.sh
-singularity exec -e docker://brainlife/fsl:5.0 ./brainmask.sh
+singularity exec -e docker://brainlife/fsl:5.0.9 ./brainmask.sh
 
 # registration
 singularity exec -e docker://brainlife/mcr:neurodebian1604-r2017a ./compiled/main
