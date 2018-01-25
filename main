@@ -13,8 +13,6 @@ singularity exec -e docker://brainlife/mcr:neurodebian1604-r2017a ./compiled/mai
 #singularity exec -e docker://brainlife/vistasoftregistration /app/clean.sh
 mv data_acpc.nii.gz dwi.nii.gz;
 mv bvecs_rot dwi.bvecs;
-bvecs=`jq -r '.bvecs' config.json`;
-mv ${bvals} dwi.bvals;
 rm -rf *nodif*;
 
 echo "DWI Registration Pipeline Complete"
