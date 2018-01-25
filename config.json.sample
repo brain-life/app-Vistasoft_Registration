@@ -1,0 +1,8 @@
+{
+    "resolution": "",
+    "interpolation": "linear",
+    "t1": "/mnt/testdata/108323/anat/t1.nii.gz",
+    "dwi": "/mnt/testdata/108323/dwi/dwi.nii.gz",
+    "bvecs": "/mnt/testdata/108323/dwi/dwi.bvecs",
+    "bvals": "/mnt/testdata/108323/dwi/dwi.bvals"
+}
