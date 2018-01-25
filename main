@@ -6,6 +6,12 @@ module load singularity 2> /dev/null
 #singularity exec -e docker://brainlife/vistasoftregistration ./brainmask.sh
 singularity exec -e docker://brainlife/fsl:5.0.9 ./brainmask.sh
 
+if [ ! -s nodif.nii.gz ];
+then
+	echo "output missing"
+	exit 1
+fi
+
 # registration
 singularity exec -e docker://brainlife/mcr:neurodebian1604-r2017a ./compiled/main
 
