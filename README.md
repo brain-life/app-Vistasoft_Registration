@@ -32,7 +32,7 @@ You can submit this App online at [https://doi.org/10.25663/bl.app.50](https://d
         "dwi": "./input/dwi/dwi.nii.gz",
         "bvals": "./input/dwi/dwi.bvals",
         "bvecs": "./input/dwi/dwi.bvecs",
-        "interpolation": "linear",
+        "interpolation": "linear"
 }
 ```
 
