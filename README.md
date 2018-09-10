@@ -4,10 +4,16 @@
 # app-vistasoft-registration
 This app will register a DWI image to a T1w image and rotate the bvecs. First, a brainmask is created of from the DWI image using FSL's bet function by running the brainmask script. Then, the brainmask image is aligned to the T1 using Vistasoft's dtiRawAlignToT1 function. The transformation matrix from this is then used to resample the DWI image using Vistasoft's dtiRawResample function. Finally, the bvecs are rotated based on the transformation using Vistasoft's dtiRawReorientBvecs function. These last three steps are all performed by running the main script.
 
-#### Authors
+### Authors
 - Brad Caron (bacaron@iu.edu)
+
+### Contributors
 - Soichi Hayashi (hayashi@iu.edu)
 - Franco Pestilli (franpest@indiana.edu)
+
+### Funding
+[![NSF-BCS-1734853](https://img.shields.io/badge/NSF_BCS-1734853-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=1734853)
+[![NSF-BCS-1636893](https://img.shields.io/badge/NSF_BCS-1636893-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=1636893)
 
 ## Running the App 
 
