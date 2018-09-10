@@ -1,5 +1,5 @@
 [![Abcdspec-compliant](https://img.shields.io/badge/ABCD_Spec-v1.1-green.svg)](https://github.com/soichih/abcd-spec)
-[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.1-blue.svg)](https://doi.org/10.25663/bl.app.1)
+[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.40-blue.svg)](https://doi.org/10.25663/bl.app.50)
 
 # app-vistasoft-registration
 This app will register a DWI image to a T1w image and rotate the bvecs. First, a brainmask is created of from the DWI image using FSL's bet function by running the brainmask script. Then, the brainmask image is aligned to the T1 using Vistasoft's dtiRawAlignToT1 function. The transformation matrix from this is then used to resample the DWI image using Vistasoft's dtiRawResample function. Finally, the bvecs are rotated based on the transformation using Vistasoft's dtiRawReorientBvecs function. These last three steps are all performed by running the main script.
